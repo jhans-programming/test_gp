@@ -13,24 +13,27 @@ public class Enemy : MonoBehaviour
     // - 
 
     [Header("Base Stats")]
-    [SerializeField] private float maxHealth = 50f;
-    [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private float attackDamage = 5f;
+    [SerializeField] protected float maxHealth = 50f;
+    [SerializeField] protected float moveSpeed = 3f;
+    [SerializeField] protected float attackDamage = 5f;
 
     protected float health;
     protected NavMeshAgent agent;
     protected Transform player;
+    protected Vector3 dirToPlayer;
 
     protected virtual void Awake()
     {
         health = maxHealth;
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = moveSpeed;
         player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        dirToPlayer = (player.position - transform.position).normalized;
         DoEnemyAI();
     }
 
@@ -50,7 +53,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         // TODO: Spawn destroyed particle effect
         Destroy(gameObject);
