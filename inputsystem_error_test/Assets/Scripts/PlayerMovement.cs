@@ -13,12 +13,15 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     private Vector2 moveInput;
-    private bool isMoving = false; 
+    private bool isMoving = false;
+
+    private Animator anim;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true; 
+        rb.freezeRotation = true;
+        anim = GetComponent<Animator>();
     }
 
     public void OnMove(InputValue value)
@@ -36,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
         // Check if player is moving
         isMoving = moveDirection.magnitude > 0.01f;
 
+        anim.SetBool("Running", isMoving);
+
         if (isMoving)
         {
             // Smoothly rotate toward movement direction
@@ -45,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
             // Move player
             Vector3 velocity = moveDirection.normalized * moveSpeed;
             rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
+
+            
         }
         else
         {

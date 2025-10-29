@@ -11,10 +11,16 @@ public class AutoShoot : MonoBehaviour
     private bool enemyInSight = false;
     private float nextShootTime = 0f;
 
+    [SerializeField]
+    private Animator anim;
+
     private void Update()
     {
+        anim.SetBool("Attacking", enemyInSight);
+
         if (enemyInSight)
-        {
+        { 
+
             // Shoot continuously based on fireRate
             if (Time.time >= nextShootTime)
             {
