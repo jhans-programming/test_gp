@@ -1,16 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : MonoBehaviour
 {
-    // Base Enemy class
-    // - Enemy has health
-    // - Enemy can take damage, can die
-    // - Enemy can attack
-    // - 
+    public event Action<Enemy> OnDeath; // Event for death notification
 
     [Header("Base Stats")]
     [SerializeField] protected float maxHealth = 50f;
@@ -30,23 +25,21 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         dirToPlayer = (player.position - transform.position).normalized;
         DoEnemyAI();
     }
 
-    protected virtual void DoEnemyAI()
-    {
+    protected virtual void DoEnemyAI() { }
 
-    }
-
-    protected void TakeDamage(float dmg)
+    public void TakeDamage(float dmg)
     {
         health -= dmg;
-        // TODO: Play hurt animation, hurt sound
-        
+        health = Mathf.Clamp(health, 0, maxHealth);
+
+        Debug.Log($"{gameObject.name} was hit! Damage: {dmg}, Remaining Health: {health}");
+
         if (health <= 0)
         {
             Die();
@@ -55,7 +48,11 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
-        // TODO: Spawn destroyed particle effect
+        Debug.Log($"{gameObject.name} has died!");
+
+        // Trigger death event
+        OnDeath?.Invoke(this);
+
         Destroy(gameObject);
     }
 }

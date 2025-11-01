@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [System.Serializable]
-    class EnemyGroup
+    public class EnemyGroup
     {
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private int count;
@@ -21,26 +21,35 @@ public class EnemySpawner : MonoBehaviour
             spawnPoint = sp;
         }
 
-        public void Spawn()
+        public bool Spawn()
         {
+            // Only spawn if there are enemies left
             if (count > 0 && Time.time > startSpawningTime && Time.time - lastSpawnTime > spawnInterval)
             {
                 count--;
                 lastSpawnTime = Time.time;
-                Instantiate(enemyPrefab, spawnPoint, Quaternion.Euler(0, 0, 0));
+                GameObject newEnemy = Object.Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
+
+                // Register with GameManager
+                Enemy enemyComponent = newEnemy.GetComponent<Enemy>();
+                if (enemyComponent != null)
+                {
+                    GameManager.Instance.RegisterEnemy(enemyComponent);
+                }
+
+                return true; // spawned an enemy
             }
+
+            return false; // no spawn
         }
+
+        public int RemainingToSpawn => count; // number of enemies left to spawn
     }
-    
 
-    [SerializeField]
-    private List<EnemyGroup> enemyWave;
+    [SerializeField] private List<EnemyGroup> enemyWave;
+    [SerializeField] private List<Transform> spawnPoints;
 
-    [SerializeField]
-    private List<Transform> spawnPoints;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         foreach (EnemyGroup group in enemyWave)
         {
@@ -48,12 +57,22 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         foreach (EnemyGroup group in enemyWave)
         {
             group.Spawn();
         }
+    }
+
+    // Return total enemies left to spawn across all groups
+    public int TotalEnemiesLeftToSpawn()
+    {
+        int total = 0;
+        foreach (var group in enemyWave)
+        {
+            total += group.RemainingToSpawn;
+        }
+        return total;
     }
 }

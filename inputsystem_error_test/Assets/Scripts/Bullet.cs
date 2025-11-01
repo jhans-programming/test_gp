@@ -20,18 +20,37 @@ public class Bullet : MonoBehaviour
         transform.position += speed * Time.deltaTime * transform.forward;
         if (Time.time - timeCreated >= lifetime)
         {
-            // In case the bullet didn't hit anything, destroy it after some time
-            // Keep scene objects clean
             Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        // --- Handle Player hit ---
         if (other.CompareTag("Player"))
         {
-            // TODO: Damage player. Ex: other.gameObject.GetComponent<Health>().TakeDamage(damage);
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage((int)damage);
+                Debug.Log($"Player hit! Took {damage} damage.");
+            }
             Destroy(gameObject);
+            return;
+        }
+
+        // --- Handle Enemy hit ---
+        if (other.CompareTag("Enemy"))
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                Debug.Log($"Enemy took {damage} damage from bullet!");
+            }
+
+            Destroy(gameObject);
+            return;
         }
     }
 }
