@@ -42,6 +42,9 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (player == null) 
+            return; // stop AI because player is gone
+
         dirToPlayer = (player.position - transform.position).normalized;
         DoEnemyAI();
     }

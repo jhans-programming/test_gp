@@ -12,9 +12,17 @@ public class AutoFace : MonoBehaviour
     public PlayerMovement playerMovement; // Reference to player movement script
 
     private Transform currentTarget;
+    private Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     private void Update()
     {
+        anim.SetBool("Attacking", playerMovement != null && !playerMovement.IsMoving() && currentTarget != null);
+
         // Only look for enemies when the player is NOT moving
         if (playerMovement != null && playerMovement.IsMoving())
         {
