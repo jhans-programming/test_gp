@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 52a2ee148dee6b04195c1045e22fcbc2, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a6227ff5f9c42b14aa3347fb6a028b60, type: 2}
 --- !u!1 &70714482
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +434,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 955279647}
     m_Modifications:
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8622147486308671633, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -481,6 +497,14 @@ PrefabInstance:
     - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_Name
       value: volcano (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
@@ -541,6 +565,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 955279647}
     m_Modifications:
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8622147486308671633, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -604,6 +644,14 @@ PrefabInstance:
     - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_Name
       value: volcano (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
@@ -728,6 +776,14 @@ PrefabInstance:
     - target: {fileID: 8404665077235349017, guid: fb266600759f1ce4a8bab7d9ebdef5fb, type: 3}
       propertyPath: m_Name
       value: Rocks_Granite_42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8404665077235349017, guid: fb266600759f1ce4a8bab7d9ebdef5fb, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8404665077235349017, guid: fb266600759f1ce4a8bab7d9ebdef5fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb266600759f1ce4a8bab7d9ebdef5fb, type: 3}
@@ -1052,6 +1108,14 @@ PrefabInstance:
     - target: {fileID: 1820949977309514752, guid: 4fc7b0ff9cb7ff544a5c5508a761d9e9, type: 3}
       propertyPath: m_Name
       value: Rocks_Granite_39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820949977309514752, guid: 4fc7b0ff9cb7ff544a5c5508a761d9e9, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820949977309514752, guid: 4fc7b0ff9cb7ff544a5c5508a761d9e9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8997288894958524352, guid: 4fc7b0ff9cb7ff544a5c5508a761d9e9, type: 3}
       propertyPath: m_RootOrder
@@ -1394,6 +1458,14 @@ PrefabInstance:
     - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
       propertyPath: m_Name
       value: Rocks_Granite_50 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3229845805797523775, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
       propertyPath: m_RootOrder
@@ -2768,7 +2840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyWave:
-  - enemyPrefab: {fileID: 5128811620208064792, guid: e42dce10de392fb46b7cf553d7658cf4, type: 3}
+  - enemyPrefab: {fileID: 139696, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
     count: 1
     spawnInterval: 3
     startSpawningTime: 2
@@ -2862,6 +2934,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 955279647}
     m_Modifications:
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8622147486308671633, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2925,6 +3013,14 @@ PrefabInstance:
     - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_Name
       value: volcano (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
@@ -3255,6 +3351,14 @@ PrefabInstance:
     - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
       propertyPath: m_Name
       value: Rocks_Granite_50 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3229845805797523775, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
       propertyPath: m_RootOrder
@@ -3593,6 +3697,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_50 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3229845805797523775, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -3842,6 +3954,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 955279647}
     m_Modifications:
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8622147486308671633, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3905,6 +4033,14 @@ PrefabInstance:
     - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_Name
       value: volcano (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
@@ -4106,6 +4242,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 955279647}
     m_Modifications:
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8622147486308671633, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4170,6 +4322,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: volcano (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
 --- !u!4 &1719272143 stripped
@@ -4184,6 +4344,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 955279647}
     m_Modifications:
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8622147486308671633, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -4231,6 +4407,14 @@ PrefabInstance:
     - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_Name
       value: volcano (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
@@ -4456,6 +4640,14 @@ PrefabInstance:
     - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
       propertyPath: m_Name
       value: Rocks_Granite_50 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3229845805797523775, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
       propertyPath: m_RootOrder
@@ -4848,6 +5040,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Granite_50
       objectReference: {fileID: 0}
+    - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 744041412316094028, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3229845805797523775, guid: 315af399243080a4ea1bb0b85ea14f39, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -5012,6 +5212,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 955279647}
     m_Modifications:
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940325927934704480, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366159340421787590, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8622147486308671633, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5059,6 +5275,14 @@ PrefabInstance:
     - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
       propertyPath: m_Name
       value: volcano
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999271605997992491, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851ae62f8e192924e86c5271266fe71b, type: 3}

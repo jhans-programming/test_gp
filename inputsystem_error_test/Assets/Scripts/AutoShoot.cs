@@ -11,8 +11,16 @@ public class AutoShoot : MonoBehaviour
     private bool enemyInSight = false;
     private float nextShootTime = 0f;
 
+    private GameObject currTarget;
+
+    private void Awake()
+    {
+        currTarget = null;
+    }
+
     private void Update()
     {
+        Debug.Log("enemyInSight : " + enemyInSight);
 
         if (enemyInSight)
         { 
@@ -46,6 +54,7 @@ public class AutoShoot : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             enemyInSight = true;
+            currTarget = other.gameObject;
         }
     }
 
