@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject winCanvas;
     [SerializeField] private GameObject loseCanvas; // ✅ NEW
+    [SerializeField] private TimerUI timerUI; // ✅ Reference to timer script
+
 
     [Header("Scene Settings")]
     [SerializeField] private string nextSceneName;
@@ -45,8 +47,10 @@ public class GameManager : MonoBehaviour
         spawner = FindObjectOfType<EnemySpawner>();
         activeEnemies.Clear();
 
+        timerUI = FindObjectOfType<TimerUI>(); // ✅ Auto assign
+
         if (winCanvas != null) winCanvas.SetActive(false);
-        if (loseCanvas != null) loseCanvas.SetActive(false); // ✅ Hide lose screen
+        if (loseCanvas != null) loseCanvas.SetActive(false);
     }
 
     public void RegisterEnemy(Enemy enemy)
@@ -77,17 +81,21 @@ public class GameManager : MonoBehaviour
 
     private void ShowWinScreen()
     {
+        if (timerUI != null)
+            timerUI.StopTimer(); // ✅ Stop timer
+
         if (winCanvas != null)
             winCanvas.SetActive(true);
     }
 
-    // ✅ Called when the player dies
     public void ShowLoseScreen()
     {
+        if (timerUI != null)
+            timerUI.StopTimer(); // ✅ Stop timer
+
         if (loseCanvas != null)
             loseCanvas.SetActive(true);
 
-        // Optional pause
         Time.timeScale = 0;
     }
 
