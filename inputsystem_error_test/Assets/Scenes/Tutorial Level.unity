@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3733672, g: 0.6107016, b: 0.86287946, a: 1}
+  m_IndirectSpecularColor: {r: 0.37336826, g: 0.6107016, b: 0.8628783, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -375,6 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  PlayerHurt: {fileID: 8300000, guid: 5fd6d008381deca42a7e6078877eb142, type: 3}
 --- !u!114 &51686740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 9114212825244368736, guid: 8186c146533704baabf102864fed9128, type: 3}
+  laserSound: {fileID: 8300000, guid: f6dd04db1b4f8e54d8dd6366c32c336e, type: 3}
   shootPoint: {fileID: 51686735}
   shootSpeed: 10
   fireRate: 10
@@ -5779,6 +5781,7 @@ MonoBehaviour:
   maxHealth: 50
   moveSpeed: 3
   attackDamage: 5
+  hurtSFXCooldown: 0.15
 --- !u!195 &1159323095
 NavMeshAgent:
   m_ObjectHideFlags: 0

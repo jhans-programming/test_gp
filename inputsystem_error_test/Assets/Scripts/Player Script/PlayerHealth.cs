@@ -5,7 +5,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("Health Settings")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
-
+    public AudioClip PlayerHurt;
     // Property to expose read-only current health
     public int CurrentHealth => currentHealth;
     public int MaxHealth => maxHealth;
@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
+        AudioManager.Instance.PlaySFX(PlayerHurt);
         Debug.Log($"Player took {amount} damage. Current health: {currentHealth}");
 
         if (currentHealth <= 0)
