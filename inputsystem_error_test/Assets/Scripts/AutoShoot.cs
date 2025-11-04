@@ -125,6 +125,9 @@ public class AutoShoot : MonoBehaviour
                 if (bullet != null)
                     bullet.SetEffect(currentEffect);
 
+                // To avoid player getting damage by their own bullet
+                bullet.shooterTag = Bullet.ShooterTag.Player;
+
                 Rigidbody rb = projectile.GetComponent<Rigidbody>();
                 if (rb != null)
                     rb.velocity = rotation * Vector3.forward * finalSpeed;

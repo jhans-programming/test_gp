@@ -22,6 +22,7 @@ public class AutoFace : MonoBehaviour
     private void Update()
     {
         anim.SetBool("Attacking", playerMovement != null && !playerMovement.IsMoving() && currentTarget != null);
+        Debug.Log("Current target is null : " + (currentTarget == null));
 
         // Only look for enemies when the player is NOT moving
         if (playerMovement != null && playerMovement.IsMoving())
