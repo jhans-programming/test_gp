@@ -2,23 +2,18 @@ using UnityEngine;
 
 public class FaceCamera : MonoBehaviour
 {
-    [Header("Camera Reference")]
-    [SerializeField] private Camera targetCamera; // Assign in Inspector (optional)
-
-    private void Start()
-    {
-        // Fallback to main camera if none is assigned
-        if (targetCamera == null)
-        {
-            targetCamera = Camera.main;
-        }
-    }
+    private Camera targetCamera;
 
     private void LateUpdate()
     {
-        if (targetCamera == null) return;
+        // Dynamically get the current active camera each frame
+        if (targetCamera == null || !targetCamera.gameObject.activeInHierarchy)
+        {
+            targetCamera = Camera.main;
+            if (targetCamera == null) return; // no camera found
+        }
 
-        // Make the UI face the camera
+        // Rotate the health bar to face the camera
         transform.rotation = Quaternion.LookRotation(transform.position - targetCamera.transform.position);
     }
 }

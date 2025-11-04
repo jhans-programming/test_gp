@@ -3872,6 +3872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 809300120}
   - component: {fileID: 809300119}
+  - component: {fileID: 809300121}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -3933,6 +3934,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &809300121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809300118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab7d2155ce0a3d4dade57d17a901b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vCam: {fileID: 809300119}
 --- !u!1001 &813362207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5005,7 +5019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c257e024433eb4f1d834632955a4f2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 1115407678}
 --- !u!114 &1051812469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7622,16 +7635,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyWave:
-  - enemyPrefab: {fileID: 5427994580571559890, guid: 25b151f9adf802f48af42770e4d48e5d, type: 3}
-    count: 5
+  - enemyPrefab: {fileID: 5920389993723117525, guid: 3e99e6792e11d3348b7263ccb285216c, type: 3}
+    count: 1
     spawnInterval: 0
     startSpawningTime: 10
+    spawnPointIndex: 0
+  - enemyPrefab: {fileID: 5427994580571559890, guid: 25b151f9adf802f48af42770e4d48e5d, type: 3}
+    count: 1
+    spawnInterval: 0
+    startSpawningTime: 15
     spawnPointIndex: 1
-  - enemyPrefab: {fileID: 5427994580571559890, guid: 25b151f9adf802f48af42770e4d48e5d, type: 3}
-    count: 5
-    spawnInterval: 0
-    startSpawningTime: 10
-    spawnPointIndex: 2
   spawnPoints:
   - {fileID: 1883674844}
   - {fileID: 845912397}

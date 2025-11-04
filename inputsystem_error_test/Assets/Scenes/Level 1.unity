@@ -2407,11 +2407,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyWave:
-  - enemyPrefab: {fileID: 5427994580571559890, guid: 25b151f9adf802f48af42770e4d48e5d, type: 3}
+  - enemyPrefab: {fileID: 5920389993723117525, guid: 3e99e6792e11d3348b7263ccb285216c, type: 3}
     count: 3
     spawnInterval: 0
     startSpawningTime: 10
     spawnPointIndex: 0
+  - enemyPrefab: {fileID: 5427994580571559890, guid: 25b151f9adf802f48af42770e4d48e5d, type: 3}
+    count: 3
+    spawnInterval: 0
+    startSpawningTime: 13
+    spawnPointIndex: 1
   spawnPoints:
   - {fileID: 796761676}
   - {fileID: 1094910735}
@@ -4254,7 +4259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c257e024433eb4f1d834632955a4f2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 70714484}
 --- !u!1001 &1336361318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6338,6 +6342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2045531254}
   - component: {fileID: 2045531253}
+  - component: {fileID: 2045531255}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -6399,6 +6404,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2045531255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045531252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab7d2155ce0a3d4dade57d17a901b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vCam: {fileID: 2045531253}
 --- !u!1 &2096468225
 GameObject:
   m_ObjectHideFlags: 0
