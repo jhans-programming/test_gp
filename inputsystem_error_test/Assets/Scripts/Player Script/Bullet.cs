@@ -55,7 +55,7 @@ public class Bullet : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-
+                /*
                 switch (effect)
                 {
                     case BulletEffect.Slow:
@@ -66,6 +66,7 @@ public class Bullet : MonoBehaviour
                         enemy.ApplyBurn(1f, 4f); // damagePerTick, duration
                         break;
                 }
+                */
             }
 
             Destroy(gameObject);

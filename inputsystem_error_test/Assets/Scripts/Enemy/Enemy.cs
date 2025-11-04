@@ -21,8 +21,8 @@ public class Enemy : MonoBehaviour
     protected Transform player;
     protected Vector3 dirToPlayer;
 
-    private Coroutine burnCoroutine;
-    private Coroutine slowCoroutine;
+    //private Coroutine burnCoroutine;
+    //private Coroutine slowCoroutine;
 
     protected virtual void Awake()
     {
@@ -66,6 +66,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /*
     // ----------------- SLOW EFFECT -----------------
     public void ApplySlow(float slowAmount, float duration)
     {
@@ -90,8 +91,10 @@ public class Enemy : MonoBehaviour
         // Restore color only if no burn is active
         rend.material.color = originalColor;
     }
+    */
 
     // ----------------- BURN EFFECT -----------------
+    /*
     public void ApplyBurn(float damagePerTick, float duration, float tickInterval = 1f)
     {
         if (burnCoroutine != null) StopCoroutine(burnCoroutine);
@@ -116,4 +119,5 @@ public class Enemy : MonoBehaviour
         // Restore original color only if no slow is active
         rend.material.color = originalColor;
     }
+    */
 }

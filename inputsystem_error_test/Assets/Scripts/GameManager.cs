@@ -11,12 +11,19 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject winCanvas;
-    [SerializeField] private GameObject loseCanvas; // ✅ NEW
-    [SerializeField] private TimerUI timerUI; // ✅ Reference to timer script
-
+    [SerializeField] private GameObject loseCanvas;
+    [SerializeField] private TimerUI timerUI;
 
     [Header("Scene Settings")]
     [SerializeField] private string nextSceneName;
+
+    [Header("Ability System")]
+    public AutoShoot playerShoot;     // Reference to player shooting script
+    private int killCount = 0;
+
+    public int unlockMultiShot = 10;
+    public int unlockLongRange = 20;
+    public int unlockFastFire = 30;
 
     private void Awake()
     {
@@ -47,7 +54,10 @@ public class GameManager : MonoBehaviour
         spawner = FindObjectOfType<EnemySpawner>();
         activeEnemies.Clear();
 
-        timerUI = FindObjectOfType<TimerUI>(); // ✅ Auto assign
+        timerUI = FindObjectOfType<TimerUI>(); 
+        playerShoot = FindObjectOfType<AutoShoot>(); // ✅ Auto assign shooting script
+
+        killCount = 0;
 
         if (winCanvas != null) winCanvas.SetActive(false);
         if (loseCanvas != null) loseCanvas.SetActive(false);
@@ -65,24 +75,65 @@ public class GameManager : MonoBehaviour
     private void OnEnemyDeath(Enemy enemy)
     {
         activeEnemies.Remove(enemy);
+        killCount++;
+
+        Debug.Log($"Enemy killed! Total kills: {killCount}");
+
+        UnlockAbilities(); // ✅ check abilities
 
         int totalLeftToSpawn = spawner != null ? spawner.TotalEnemiesLeftToSpawn() : 0;
         int currentlyAlive = activeEnemies.Count;
 
-        // ✅ Debug: show how many enemies are left in the level
-        Debug.Log($"Enemy died! Alive right now: {currentlyAlive}, left to spawn: {totalLeftToSpawn}");
-
         if (currentlyAlive == 0 && totalLeftToSpawn == 0)
         {
-            Debug.Log("✅ All enemies defeated! Player wins!");
             ShowWinScreen();
+        }
+    }
+
+    private void UnlockAbilities()
+    {
+        if (playerShoot == null) return;
+
+        // ✅ Unlock Multi-Shot
+        if (killCount == unlockMultiShot && !playerShoot.multiShotEnabled)
+        {
+            playerShoot.multiShotEnabled = true;
+            Debug.Log("🚀 Ability Unlocked: MULTI-SHOT!");
+        }
+
+        // ✅ Unlock Long Range
+        if (killCount == unlockLongRange && !playerShoot.longRangeEnabled)
+        {
+            playerShoot.longRangeEnabled = true;
+
+            // Update collider size
+            if (playerShoot.shootCollider != null)
+            {
+                Vector3 size = playerShoot.shootCollider.size;
+                size.z = playerShoot.longRangeDetection;
+                playerShoot.shootCollider.size = size;
+            }
+
+            if (playerShoot.autoFace != null)
+                playerShoot.autoFace.detectionRadius = playerShoot.longRangeDetection;
+
+            Debug.Log("🎯 Ability Unlocked: LONG RANGE!");
+        }
+
+        // ✅ Unlock Fast Fire
+        if (killCount == unlockFastFire && !playerShoot.fastFireEnabled)
+        {
+            playerShoot.fastFireEnabled = true;
+            playerShoot.fireRate = playerShoot.normalFireRate * playerShoot.fastFireMultiplier;
+
+            Debug.Log("🔥 Ability Unlocked: FAST FIRE!");
         }
     }
 
     private void ShowWinScreen()
     {
         if (timerUI != null)
-            timerUI.StopTimer(); // ✅ Stop timer
+            timerUI.StopTimer();
 
         if (winCanvas != null)
             winCanvas.SetActive(true);
@@ -91,7 +142,7 @@ public class GameManager : MonoBehaviour
     public void ShowLoseScreen()
     {
         if (timerUI != null)
-            timerUI.StopTimer(); // ✅ Stop timer
+            timerUI.StopTimer();
 
         if (loseCanvas != null)
             loseCanvas.SetActive(true);
@@ -99,7 +150,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    // ✅ Button function to restart scene
     public void RestartScene()
     {
         Time.timeScale = 1;

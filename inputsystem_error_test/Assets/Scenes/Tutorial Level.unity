@@ -292,6 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0061718424e684023b4979d415b08b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tmpText: {fileID: 25347138}
+  disableDelay: 10
 --- !u!1 &25347136
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +582,7 @@ MonoBehaviour:
   shootPoint: {fileID: 51686735}
   shootSpeed: 10
   fireRate: 10
+  normalFireRate: 0
   anim: {fileID: 51686737}
   currentEffect: 0
   multiShotEnabled: 0
@@ -6410,6 +6413,10 @@ MonoBehaviour:
   loseCanvas: {fileID: 509019588}
   timerUI: {fileID: 0}
   nextSceneName: Level 1
+  playerShoot: {fileID: 0}
+  unlockMultiShot: 10
+  unlockLongRange: 20
+  unlockFastFire: 30
 --- !u!4 &1192152865
 Transform:
   m_ObjectHideFlags: 0
