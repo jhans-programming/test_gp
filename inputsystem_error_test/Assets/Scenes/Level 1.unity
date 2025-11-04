@@ -2384,7 +2384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 792554019}
-  - component: {fileID: 792554018}
+  - component: {fileID: 792554020}
   m_Layer: 0
   m_Name: MedPackSpawner
   m_TagString: Untagged
@@ -2392,27 +2392,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &792554018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792554017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5e48296c10e7754ebb05392f0943dbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyWave:
-  - enemyPrefab: {fileID: 5427994580571559890, guid: 25b151f9adf802f48af42770e4d48e5d, type: 3}
-    count: 1
-    spawnInterval: 0
-    startSpawningTime: 10
-    spawnPointIndex: 0
-  spawnPoints:
-  - {fileID: 796761676}
-  - {fileID: 1094910735}
 --- !u!4 &792554019
 Transform:
   m_ObjectHideFlags: 0
@@ -2428,6 +2407,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &792554020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792554017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0330a52e9d19f114ba3e7aa185879e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medkitWaves:
+  - medkitPrefab: {fileID: 5427994580571559890, guid: 25b151f9adf802f48af42770e4d48e5d, type: 3}
+    count: 1
+    spawnInterval: 0
+    startSpawningTime: 10
+    spawnPointIndex: 0
+  spawnPoints:
+  - {fileID: 796761676}
 --- !u!1 &796761672
 GameObject:
   m_ObjectHideFlags: 0
