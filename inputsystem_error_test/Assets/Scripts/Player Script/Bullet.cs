@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public enum BulletEffect { None, Slow, Burn }
+    public enum ShooterTag { Player, Enemy}
 
     [SerializeField] private float damage = 2f;
     [SerializeField] private float speed = 100f;
@@ -13,6 +14,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] private BulletEffect effect = BulletEffect.None; // private but assignable
 
     private float timeCreated;
+
+    [System.NonSerialized] public ShooterTag shooterTag;
 
     private void Awake()
     {
@@ -35,7 +38,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // --- Player hit ---
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && shooterTag == ShooterTag.Enemy)
         {
             var playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null)
@@ -46,7 +49,7 @@ public class Bullet : MonoBehaviour
         }
 
         // --- Enemy hit ---
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && shooterTag == ShooterTag.Player)
         {
             var enemy = other.GetComponent<Enemy>();
             if (enemy != null)

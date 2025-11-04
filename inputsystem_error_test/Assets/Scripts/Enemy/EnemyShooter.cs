@@ -60,7 +60,12 @@ public class EnemyShooter : Enemy
     {
         if (Time.time - lastShootTime >= shootInterval)
         {
-            Instantiate(projectile, shootPoint.position, Quaternion.LookRotation(dirToPlayer));
+            GameObject proj = Instantiate(projectile, shootPoint.position, Quaternion.LookRotation(dirToPlayer));
+
+            // To avoid friendly fire amongst enemies
+            Bullet bullet = proj.GetComponent<Bullet>();
+            bullet.shooterTag = Bullet.ShooterTag.Enemy;
+
             lastShootTime = Time.time;
         }
     }
