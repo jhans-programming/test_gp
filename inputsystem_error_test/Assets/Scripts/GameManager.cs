@@ -11,9 +11,10 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject winCanvas;
+    [SerializeField] private GameObject loseCanvas; // ✅ NEW
 
     [Header("Scene Settings")]
-    [SerializeField] private string nextSceneName; // Set in Inspector
+    [SerializeField] private string nextSceneName;
 
     private void Awake()
     {
@@ -39,18 +40,13 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // Called when a new scene is loaded
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Dynamically find the EnemySpawner in the new scene
         spawner = FindObjectOfType<EnemySpawner>();
-
-        // Optionally, clear the activeEnemies list for a fresh scene
         activeEnemies.Clear();
 
-        // Optionally, hide the win screen in the new scene
-        if (winCanvas != null)
-            winCanvas.SetActive(false);
+        if (winCanvas != null) winCanvas.SetActive(false);
+        if (loseCanvas != null) loseCanvas.SetActive(false); // ✅ Hide lose screen
     }
 
     public void RegisterEnemy(Enemy enemy)
@@ -66,13 +62,15 @@ public class GameManager : MonoBehaviour
     {
         activeEnemies.Remove(enemy);
 
-        int totalLeft = spawner != null ? spawner.TotalEnemiesLeftToSpawn() : 0;
+        int totalLeftToSpawn = spawner != null ? spawner.TotalEnemiesLeftToSpawn() : 0;
+        int currentlyAlive = activeEnemies.Count;
 
-        Debug.Log($"Enemies remaining: {activeEnemies.Count + totalLeft}");
+        // ✅ Debug: show how many enemies are left in the level
+        Debug.Log($"Enemy died! Alive right now: {currentlyAlive}, left to spawn: {totalLeftToSpawn}");
 
-        if (activeEnemies.Count == 0 && totalLeft == 0)
+        if (currentlyAlive == 0 && totalLeftToSpawn == 0)
         {
-            Debug.Log("You Win!");
+            Debug.Log("✅ All enemies defeated! Player wins!");
             ShowWinScreen();
         }
     }
@@ -80,26 +78,33 @@ public class GameManager : MonoBehaviour
     private void ShowWinScreen()
     {
         if (winCanvas != null)
-        {
             winCanvas.SetActive(true);
-        }
-        else
-        {
-            Debug.LogWarning("Win Canvas is not assigned in the GameManager!");
-        }
-        // Time.timeScale = 0; // Optional pause
+    }
+
+    // ✅ Called when the player dies
+    public void ShowLoseScreen()
+    {
+        if (loseCanvas != null)
+            loseCanvas.SetActive(true);
+
+        // Optional pause
+        Time.timeScale = 0;
+    }
+
+    // ✅ Button function to restart scene
+    public void RestartScene()
+    {
+        Time.timeScale = 1;
+        Scene current = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(current.name);
     }
 
     public void LoadNextScene()
     {
         if (!string.IsNullOrEmpty(nextSceneName))
         {
-            // Time.timeScale = 1; // Reset if paused
+            Time.timeScale = 1;
             SceneManager.LoadScene(nextSceneName);
-        }
-        else
-        {
-            Debug.LogError("No scene name assigned in GameManager!");
         }
     }
 }

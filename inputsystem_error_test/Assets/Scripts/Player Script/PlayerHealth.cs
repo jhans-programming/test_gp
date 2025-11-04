@@ -51,6 +51,10 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player has died!");
-        Destroy(gameObject);
+
+        GameManager.Instance.ShowLoseScreen();
+
+        // Optional: disable player controls/movement here
+        Destroy(gameObject, 0.2f); // delay so the death event runs
     }
 }
