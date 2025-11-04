@@ -7107,14 +7107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyWave:
-  - enemyPrefab: {fileID: 8964791724468401544, guid: 3406e61391b3f4d189f939244fbe1b1b, type: 3}
+  - enemyPrefab: {fileID: 5427994580571559890, guid: 25b151f9adf802f48af42770e4d48e5d, type: 3}
     count: 1
     spawnInterval: 0
-    startSpawningTime: 10
-    spawnPointIndex: 0
-  - enemyPrefab: {fileID: 8964791724468401544, guid: 3406e61391b3f4d189f939244fbe1b1b, type: 3}
-    count: 1
-    spawnInterval: 2
     startSpawningTime: 10
     spawnPointIndex: 0
   spawnPoints:
