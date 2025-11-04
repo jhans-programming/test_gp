@@ -1642,6 +1642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 9114212825244368736, guid: 8186c146533704baabf102864fed9128, type: 3}
+  laserSound: {fileID: 8300000, guid: f6dd04db1b4f8e54d8dd6366c32c336e, type: 3}
   shootPoint: {fileID: 592208055}
   shootSpeed: 10
   fireRate: 10
@@ -3889,6 +3890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  PlayerHurt: {fileID: 8300000, guid: 5fd6d008381deca42a7e6078877eb142, type: 3}
 --- !u!4 &1114827109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4463868907105534, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
