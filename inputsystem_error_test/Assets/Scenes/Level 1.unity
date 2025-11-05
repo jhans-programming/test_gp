@@ -2452,10 +2452,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyWave:
   - enemyPrefab: {fileID: 5427994580571559890, guid: 25b151f9adf802f48af42770e4d48e5d, type: 3}
-    count: 3
+    count: 1
     spawnInterval: 0
     startSpawningTime: 10
     spawnPointIndex: 0
+  - enemyPrefab: {fileID: 7740890822525152080, guid: 99adc298dfe4d7c4ea42920fe16b1e4c, type: 3}
+    count: 1
+    spawnInterval: 0
+    startSpawningTime: 10
+    spawnPointIndex: 1
   spawnPoints:
   - {fileID: 796761676}
   - {fileID: 1094910735}
