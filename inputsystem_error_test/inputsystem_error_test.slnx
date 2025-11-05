@@ -1,6 +1,6 @@
 ﻿<Solution>
-  <Project Path="UnityEngine.TestRunner.csproj" />
   <Project Path="UnityEngine.UI.csproj" />
+  <Project Path="UnityEngine.TestRunner.csproj" />
   <Project Path="Unity.VisualScripting.Flow.csproj" />
   <Project Path="Unity.Services.Core.Telemetry.csproj" />
   <Project Path="Unity.InputSystem.csproj" />

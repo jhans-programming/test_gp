@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
 public class HealthBarUI : MonoBehaviour
 {
     [Header("References")]
@@ -30,9 +30,11 @@ public class HealthBarUI : MonoBehaviour
         }
 
         // Initialize health bar
-        targetFillAmount = 1f;
+        //targetFillAmount = 1f;
         foregroundImage.fillAmount = targetFillAmount;
     }
+
+
 
     private void Update()
     {

@@ -10,10 +10,22 @@ public class PlayerHealth : MonoBehaviour
     public int CurrentHealth => currentHealth;
     public int MaxHealth => maxHealth;
 
-    void Start()
-    {
-        // Initialize current health to the maximum
+    // void Start()
+    // {
+    //     // Initialize current health to the maximum
+    //     currentHealth = maxHealth;
+    // }
+
+    void Awake()
+{
+    // ✅ Only set currentHealth if not already set by GameManager
+    if (currentHealth <= 0)
         currentHealth = maxHealth;
+}
+
+    public void Update()
+    {
+        Debug.Log("my health is" + currentHealth);
     }
 
     // Take damage dynamically
@@ -38,6 +50,12 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = Mathf.Min(currentHealth, maxHealth);
 
         Debug.Log($"Max health set to {maxHealth}. Current health: {currentHealth}");
+    }
+
+    public void SetCurrentHealth(int newHealth)
+    {
+        currentHealth = newHealth;
+        Debug.Log($"Player current health set to {currentHealth}");
     }
 
     public void Heal(int amount)

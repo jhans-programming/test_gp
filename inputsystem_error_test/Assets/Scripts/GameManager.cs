@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
+    private PlayerHealth playerHealth;
     private List<Enemy> activeEnemies = new List<Enemy>();
     private EnemySpawner spawner;
+
+    private int currentHealth = 100;
 
     [Header("UI")]
     [SerializeField] private GameObject winCanvas;
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
     }
 
     private void OnEnable()
@@ -58,7 +61,10 @@ public class GameManager : MonoBehaviour
 
         timerUI = FindObjectOfType<TimerUI>();
         playerShoot = FindObjectOfType<AutoShoot>(); // ✅ Auto assign shooting script
+        playerHealth = FindObjectOfType<PlayerHealth>();
 
+
+        playerHealth.SetCurrentHealth(currentHealth); // restore previous HP
         killCount = 0;
   
         winCanvas = GameObject.Find("WinCanvas");
@@ -137,17 +143,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
     private void ShowWinScreen()
     {
         if (timerUI != null)
             timerUI.StopTimer();
-  
+
         if (winCanvas != null)
             winCanvas.SetActive(true);
+
+        currentHealth = playerHealth.CurrentHealth;
+        Debug.Log("current health:" + currentHealth);
     }
 
     public void ShowLoseScreen()
     {
+         currentHealth = 100;
         if (timerUI != null)
             timerUI.StopTimer();
 
@@ -155,6 +166,7 @@ public class GameManager : MonoBehaviour
             loseCanvas.SetActive(true);
 
         Time.timeScale = 0;
+       
     }
 
     public void RestartScene()
@@ -164,15 +176,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(current.name);
     }
 
-    public void LoadNextScene()
+    public void LoadNextScene(string sceneName)
     {
-        
-        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        nextIndex = nextIndex % SceneManager.sceneCountInBuildSettings;
-        Debug.Log(nextIndex);
-        
-            Time.timeScale = 1;
-            SceneManager.LoadScene(nextIndex);
+        if (sceneName == "StartScene")
+        {
+            currentHealth = 100;
+        }
+        Time.timeScale = 1;
+        SceneManager.LoadScene(sceneName);
         
         
     }
