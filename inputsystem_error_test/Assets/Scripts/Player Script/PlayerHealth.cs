@@ -6,6 +6,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
     public AudioClip PlayerHurt;
+
+    [SerializeField] private GameObject hurtEffectPrefab;
     // Property to expose read-only current health
     public int CurrentHealth => currentHealth;
     public int MaxHealth => maxHealth;
@@ -35,7 +37,10 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         AudioManager.Instance.PlaySFX(PlayerHurt);
         Debug.Log($"Player took {amount} damage. Current health: {currentHealth}");
-
+        if (hurtEffectPrefab != null)
+        {
+            Instantiate(hurtEffectPrefab, transform.position, Quaternion.identity);
+        }
         if (currentHealth <= 0)
         {
             Die();
@@ -71,7 +76,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player has died!");
 
         GameManager.Instance.ShowLoseScreen();
-
+        AudioManager.Instance.PlayPlayerDeath();
         // Optional: disable player controls/movement here
         Destroy(gameObject, 0.2f); // delay so the death event runs
     }

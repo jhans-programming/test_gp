@@ -9,6 +9,9 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip buttonSFX;
     public AudioClip medkitSFX;
+
+    public AudioClip EnemyDeath;
+    public AudioClip playerDeath;
     public AudioClip startMusic;
     public AudioClip tutorialMusic;
     public AudioClip level1Music;
@@ -74,10 +77,20 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.PlayOneShot(buttonSFX);
     }
-    
-     public void PlayMedKit()
+
+    public void PlayMedKit()
     {
         sfxSource.PlayOneShot(medkitSFX);
+    }
+
+    public void PlayPlayerDeath()
+    {
+        sfxSource.PlayOneShot(playerDeath);
+    }
+    
+    public void PlayEnemyDeath()
+    {
+        sfxSource.PlayOneShot(EnemyDeath);
     }
 
 

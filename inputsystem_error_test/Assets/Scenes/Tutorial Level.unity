@@ -376,6 +376,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   PlayerHurt: {fileID: 8300000, guid: 5fd6d008381deca42a7e6078877eb142, type: 3}
+  hurtEffectPrefab: {fileID: 28968497537160984, guid: 858f1ff7573bedf47ad00e97d2aca1a7, type: 3}
 --- !u!114 &51686740
 MonoBehaviour:
   m_ObjectHideFlags: 0

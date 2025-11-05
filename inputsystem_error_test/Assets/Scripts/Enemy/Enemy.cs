@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float maxHealth = 50f;
     [SerializeField] protected float moveSpeed = 3f;
     [SerializeField] protected float attackDamage = 5f;
+
+    [SerializeField] private GameObject hurtEffectPrefab;
     private AudioClip EnemyHurt;
     private float lastHurtTime;
     public float hurtSFXCooldown = 0.15f;
@@ -41,6 +43,7 @@ public class Enemy : MonoBehaviour
             originalColor = rend.material.color;
         }
         EnemyHurt = Resources.Load<AudioClip>("SFX/EnemyHurt");
+        hurtEffectPrefab = Resources.Load<GameObject>("VFX/HurtEffect");
     }
 
     void Update()
@@ -59,10 +62,15 @@ public class Enemy : MonoBehaviour
         health -= dmg;
         health = Mathf.Clamp(health, 0, maxHealth);
         if (Time.time - lastHurtTime > hurtSFXCooldown)
-    {
-        AudioManager.Instance.PlaySFX(EnemyHurt);
-        lastHurtTime = Time.time;
-    }
+        {
+            AudioManager.Instance.PlaySFX(EnemyHurt);
+            lastHurtTime = Time.time;
+        }
+
+        if (hurtEffectPrefab != null)
+        {
+            Instantiate(hurtEffectPrefab, transform.position, Quaternion.identity);
+        }
 
         if (health <= 0)
             Die();
@@ -70,6 +78,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        AudioManager.Instance.PlayEnemyDeath();
         OnDeath?.Invoke(this);
         Destroy(gameObject);
     }
