@@ -830,13 +830,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   medkitWaves:
-  - medkitPrefab: {fileID: 5427994580571559890, guid: 25b151f9adf802f48af42770e4d48e5d, type: 3}
+  - medkitPrefab: {fileID: 5920389993723117525, guid: 3e99e6792e11d3348b7263ccb285216c, type: 3}
     count: 1
     spawnInterval: 0
     startSpawningTime: 10
     spawnPointIndex: 0
+  - medkitPrefab: {fileID: 5427994580571559890, guid: 25b151f9adf802f48af42770e4d48e5d, type: 3}
+    count: 1
+    spawnInterval: 0
+    startSpawningTime: 15
+    spawnPointIndex: 1
   spawnPoints:
   - {fileID: 1479318992}
+  - {fileID: 1426658284}
 --- !u!4 &114629164
 Transform:
   m_ObjectHideFlags: 0
@@ -1906,7 +1912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c257e024433eb4f1d834632955a4f2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 70714484}
 --- !u!114 &378754224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4217,6 +4222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PolyArtWizardStandardMat
       objectReference: {fileID: 0}
+    - target: {fileID: 1248815240492774, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4463868907105534, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4291,6 +4300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  PlayerHurt: {fileID: 8300000, guid: 5fd6d008381deca42a7e6078877eb142, type: 3}
 --- !u!4 &1114827109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4463868907105534, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
@@ -5097,6 +5107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 9114212825244368736, guid: 8186c146533704baabf102864fed9128, type: 3}
+  laserSound: {fileID: 8300000, guid: f6dd04db1b4f8e54d8dd6366c32c336e, type: 3}
   shootPoint: {fileID: 168259050}
   shootSpeed: 10
   fireRate: 10
@@ -6920,6 +6931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1860070020}
   - component: {fileID: 1860070019}
+  - component: {fileID: 1860070021}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -6981,6 +6993,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1860070021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860070018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab7d2155ce0a3d4dade57d17a901b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vCam: {fileID: 1860070019}
 --- !u!1001 &1860495190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7396,6 +7421,7 @@ MonoBehaviour:
   maxHealth: 50
   moveSpeed: 3
   attackDamage: 5
+  hurtSFXCooldown: 0.15
 --- !u!1001 &1993793941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7849,3 +7875,4 @@ MonoBehaviour:
   maxHealth: 50
   moveSpeed: 3
   attackDamage: 5
+  hurtSFXCooldown: 0.15

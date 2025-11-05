@@ -12,7 +12,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float maxHealth = 50f;
     [SerializeField] protected float moveSpeed = 3f;
     [SerializeField] protected float attackDamage = 5f;
-
+    private AudioClip EnemyHurt;
+    private float lastHurtTime;
+    public float hurtSFXCooldown = 0.15f;
     private Color originalColor;
     private Renderer rend;
 
@@ -38,6 +40,7 @@ public class Enemy : MonoBehaviour
             rend.material = new Material(rend.material);
             originalColor = rend.material.color;
         }
+        EnemyHurt = Resources.Load<AudioClip>("SFX/EnemyHurt");
     }
 
     void Update()
@@ -55,6 +58,11 @@ public class Enemy : MonoBehaviour
     {
         health -= dmg;
         health = Mathf.Clamp(health, 0, maxHealth);
+        if (Time.time - lastHurtTime > hurtSFXCooldown)
+    {
+        AudioManager.Instance.PlaySFX(EnemyHurt);
+        lastHurtTime = Time.time;
+    }
 
         if (health <= 0)
             Die();

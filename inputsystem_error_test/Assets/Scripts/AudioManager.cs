@@ -5,6 +5,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public AudioSource musicSource;
+        public AudioSource sfxSource; 
+
     public AudioClip startMusic;
     public AudioClip tutorialMusic;
     public AudioClip level1Music;
@@ -57,6 +59,15 @@ public class AudioManager : MonoBehaviour
             StartCoroutine(FadeMusic(newClip, 1f));
         }
     }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        Debug.Log("test sound");
+        if (clip != null)
+        sfxSource.PlayOneShot(clip);
+        //AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
+    }
+
 
     IEnumerator FadeMusic(AudioClip newClip, float fadeTime = 1f)
     {

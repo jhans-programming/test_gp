@@ -4,6 +4,7 @@ public class AutoShoot : MonoBehaviour
 {
     [Header("Shooting Settings")]
     public GameObject projectilePrefab;
+    public AudioClip laserSound;
     public Transform shootPoint;
     public float shootSpeed = 10f;
     public float fireRate = 10f;
@@ -83,7 +84,7 @@ public class AutoShoot : MonoBehaviour
 
             return;
         }
-
+        AudioManager.Instance.PlaySFX(laserSound);
         // ✅ Single shot
         GameObject p = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
         Bullet b = p.GetComponent<Bullet>();
