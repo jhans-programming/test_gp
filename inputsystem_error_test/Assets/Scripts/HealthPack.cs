@@ -17,7 +17,7 @@ public class HealthPack : MonoBehaviour
             player.Heal(healAmount);
 
             Debug.Log($"Player healed for {healAmount}. Current health: {player.CurrentHealth}");
-
+            AudioManager.Instance.PlayMedKit();
             // Destroy health pack
             if (destroyOnPickup)
                 Destroy(gameObject);

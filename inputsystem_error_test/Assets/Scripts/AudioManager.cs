@@ -5,8 +5,10 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public AudioSource musicSource;
-        public AudioSource sfxSource; 
+    public AudioSource sfxSource;
 
+    public AudioClip buttonSFX;
+    public AudioClip medkitSFX;
     public AudioClip startMusic;
     public AudioClip tutorialMusic;
     public AudioClip level1Music;
@@ -64,8 +66,18 @@ public class AudioManager : MonoBehaviour
     {
         Debug.Log("test sound");
         if (clip != null)
-        sfxSource.PlayOneShot(clip);
+            sfxSource.PlayOneShot(clip);
         //AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
+    }
+
+    public void playButton()
+    {
+        sfxSource.PlayOneShot(buttonSFX);
+    }
+    
+     public void PlayMedKit()
+    {
+        sfxSource.PlayOneShot(medkitSFX);
     }
 
 

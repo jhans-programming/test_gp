@@ -6,6 +6,7 @@ public class SceneChanger : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        AudioManager.Instance.playButton();
     }
 
     public void RestartScene()
