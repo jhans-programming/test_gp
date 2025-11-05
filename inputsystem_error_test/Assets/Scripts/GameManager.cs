@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,14 +56,18 @@ public class GameManager : MonoBehaviour
         spawner = FindObjectOfType<EnemySpawner>();
         activeEnemies.Clear();
 
-        timerUI = FindObjectOfType<TimerUI>(); 
+        timerUI = FindObjectOfType<TimerUI>();
         playerShoot = FindObjectOfType<AutoShoot>(); // ✅ Auto assign shooting script
 
         killCount = 0;
+  
+        winCanvas = GameObject.Find("WinCanvas");
+        loseCanvas = GameObject.Find("LoseCanvas");
 
         if (winCanvas != null) winCanvas.SetActive(false);
         if (loseCanvas != null) loseCanvas.SetActive(false);
     }
+    
 
     public void RegisterEnemy(Enemy enemy)
     {
@@ -86,6 +92,7 @@ public class GameManager : MonoBehaviour
 
         if (currentlyAlive == 0 && totalLeftToSpawn == 0)
         {
+            Debug.Log("Ni hao");
             ShowWinScreen();
         }
     }
@@ -134,7 +141,7 @@ public class GameManager : MonoBehaviour
     {
         if (timerUI != null)
             timerUI.StopTimer();
-
+  
         if (winCanvas != null)
             winCanvas.SetActive(true);
     }
@@ -159,10 +166,14 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextScene()
     {
-        if (!string.IsNullOrEmpty(nextSceneName))
-        {
+        
+        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        nextIndex = nextIndex % SceneManager.sceneCountInBuildSettings;
+        Debug.Log(nextIndex);
+        
             Time.timeScale = 1;
-            SceneManager.LoadScene(nextSceneName);
-        }
+            SceneManager.LoadScene(nextIndex);
+        
+        
     }
 }
